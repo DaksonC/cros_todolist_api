@@ -19,7 +19,7 @@ model Task {
   id          Int     @id @default(autoincrement())
   title       String
   description String?
-  status      Boolean
+  status      Boolean @default(false)
   userId      Int
   user        User    @relation(fields: [userId], references: [id])
 }
