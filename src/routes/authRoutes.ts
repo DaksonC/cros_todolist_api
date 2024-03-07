@@ -1,7 +1,7 @@
-import express, { Request, Response } from 'express';
 import bcrypt from 'bcryptjs';
-import { PrismaClient } from '@prisma/client';
 import { generateToken } from '../auth';
+import { PrismaClient } from '@prisma/client';
+import express, { Request, Response } from 'express';
 
 const prisma = new PrismaClient();
 const router = express.Router();
@@ -23,6 +23,7 @@ router.post('/signup', async (req: Request, res: Response) => {
     res.status(500).json({ error: 'Erro ao criar usuário' });
   }
 });
+
 
 router.post('/login', async (req: Request, res: Response) => {
   try {
