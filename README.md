@@ -39,4 +39,8 @@ Com Yarn:
 ```bash
 yarn start:dev
 ```
+Com Docker
+```bash
+docker-compose  up --build
+```
 O servidor será iniciado e estará acessível em http://localhost:3000.

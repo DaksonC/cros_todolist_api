@@ -8,17 +8,20 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - DATABASE_URL=file:/usr/src/app/data/db.sqlite3
-      - CRET_KEY=${CRET_KEY}
+      - DB_TYPE=${DB_TYPE}
+      - DB_SERVER_HOST=${DB_SERVER_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_NAME=${DB_NAME}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - SECRET_KEY=${SECRET_KEY}
     depends_on:
       - db
 
   db:
-    image: "alpine"
-    volumes:
-      - sqlite-data:/usr/src/app/data
+    image: mcr.microsoft.com/mssql/server
     environment:
-      - DATABASE_URL=/usr/src/app/data/db.sqlite3
-
-volumes:
-  sqlite-data:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=${DB_PASSWORD}
+    ports:
+      - "1433:1433"
