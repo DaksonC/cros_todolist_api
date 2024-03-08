@@ -33,10 +33,10 @@ Para iniciar o servidor de desenvolvimento, você pode usar npm ou Yarn.
 
 Com npm:
 ```bash
-npm start
+npm run start:dev
 ```
 Com Yarn:
 ```bash
-yarn start
+yarn start:dev
 ```
 O servidor será iniciado e estará acessível em http://localhost:3000.
